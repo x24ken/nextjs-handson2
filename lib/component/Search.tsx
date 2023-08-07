@@ -32,10 +32,8 @@ const Search: FC<{
 
   // 検索処理を関数として切り出します。
   const handleSearch = async () => {
-    console.log("search");
     try {
       setSearching(true);
-      console.log(process.env.NEXT_PUBLIC_API_BASE_URL);
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/search`,
         {
