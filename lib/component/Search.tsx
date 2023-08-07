@@ -35,14 +35,20 @@ const Search: FC<{
     console.log("search");
     try {
       setSearching(true);
-      const response = await fetch("http://localhost:3000/api/search", {
-        method: "POST",
-        body: JSON.stringify({ query }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      console.log(process.env.REACT_APP_API_BASE_URL);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/search`,
+        {
+          method: "POST",
+          body: JSON.stringify({ query }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       if (!response.ok) {
+        console.error(response);
         throw new Error("検索に失敗しました");
       }
 
