@@ -35,7 +35,7 @@ const Search: FC<{
     console.log("search");
     try {
       setSearching(true);
-      console.log(process.env.REACT_APP_API_BASE_URL);
+      console.log(process.env.NEXT_PUBLIC_API_BASE_URL);
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/search`,
         {
